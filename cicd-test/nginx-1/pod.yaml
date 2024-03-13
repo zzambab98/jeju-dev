@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
   - name: argocd-helloworld
-    image: hmmbkcd7.kr.private-ncr.ntruss.com/nginx
+    image: jejuonul-api-dev.kr.ncr.ntruss.com/nginx:latest
     resources:
       limits:
         memory: "64Mi"
