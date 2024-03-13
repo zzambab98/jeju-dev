@@ -8,6 +8,10 @@ spec:
   containers:
   - name: argocd-helloworld
     image: jejuonul-api-dev.kr.ncr.ntruss.com/jejuonul-api-dev/nginx:1.0
+    resources:
+      limits:
+        memory: "64Mi"
+        cpu: "1"
     ports:
       - containerPort: 80
   imagePullSecrets:
