@@ -14,3 +14,5 @@ spec:
         cpu: "0.2"
     ports:
       - containerPort: 80
+  imagePullSecrets:
+  - name: ncr-secret
