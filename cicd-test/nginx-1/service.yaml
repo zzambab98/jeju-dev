@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: argocd-helloworld
 spec:
+  type: LoadBalancer
   selector:
     app: argocd-helloworld
   ports:
