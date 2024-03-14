@@ -10,4 +10,6 @@ spec:
     image: jejuonul-api-dev.kr.ncr.ntruss.com/nginx
     ports:
     - containerPort: 80
+  imagePullSecrets:
+  - name: ncr-secret
 
