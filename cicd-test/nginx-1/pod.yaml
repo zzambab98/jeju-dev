@@ -1,16 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: argocd-helloworld
+  name: nginx-pod
   labels:
-    name: argocd-helloworld
+    app: nginx
 spec:
   containers:
-  - name: argocd-helloworld
+  - name: nginx-container
     image: jejuonul-api-dev.kr.ncr.ntruss.com/nginx
-    resources:
-      limits:
-        memory: "64Mi"
-        cpu: "0.2"
     ports:
-      - containerPort: 80
+    - containerPort: 80
+
