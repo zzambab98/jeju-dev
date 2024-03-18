@@ -6,7 +6,7 @@ metadata:
     app: jeju-order-api
 spec:
   containers:
-  - name: nginx-container
+  - name: jeju-order-api-container
     image: jejuonul-api-dev.kr.ncr.ntruss.com/jeju-order-api:0.0.1
     ports:
     - containerPort: 80
