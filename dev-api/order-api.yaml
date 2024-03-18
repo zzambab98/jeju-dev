@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: api
+    app.kubernetes.io/instance: order-api
+  name: api-pod
+  namespace: jejuonul-dev
+spec:
+  containers:
+    - image: 'jejuonul-api-dev.kr.ncr.ntruss.com/jeju-order-api:0.1'
+      name: jeju-order-api-test
+      ports:
+        - containerPort: 8080
+      env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: "dev"
+  imagePullSecrets:
+    - name: ncr-secret
