@@ -8,7 +8,7 @@ metadata:
   namespace: jejuonul-dev
 spec:
   containers:
-    - image: 'jejuonul-api-dev.kr.ncr.ntruss.com/jeju-order-api:0.1'
+    - image: 'jejuonul-api-dev.kr.ncr.ntruss.com/jeju-order-api:0.2'
       name: jeju-order-api-test
       ports:
         - containerPort: 8080
