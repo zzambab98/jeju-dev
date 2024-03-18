@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: jeju-order-api-pod
+  name: nginx-pod
   labels:
-    app: jeju-order-api
+    app: nginx
 spec:
   containers:
   - name: jeju-order-api-container
-    image: jejuonul-api-dev.kr.ncr.ntruss.com/jeju-order-api:0.0.1
+    image: jejuonul-api-dev.kr.ncr.ntruss.com/nginx
     ports:
     - containerPort: 80
   imagePullSecrets:
