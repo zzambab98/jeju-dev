@@ -17,7 +17,7 @@ spec:
         app: nginx
     spec:
       containers:
-      - image: jejuonul-api-dev.kr.ncr.ntruss.com/nginx
+      - image: jejuonul-api-dev.kr.ncr.ntruss.com/apache
         name: nginx
         ports:
         - containerPort: 80
