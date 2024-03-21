@@ -17,7 +17,7 @@ spec:
         app: nginx
     spec:
       containers:
-      - image:  ubuntu/apache2
+      - image:  nginx
         name: nginx
         ports:
         - containerPort: 80
