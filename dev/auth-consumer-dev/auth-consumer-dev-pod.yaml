@@ -1,16 +1,53 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
+  name: auth-consumer-dev
+  namespace: jejuonul-dev-test
   labels:
     app: auth-consumer-dev
     app.kubernetes.io/instance: auth-consumer-dev
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: auth-consumer-dev
+  template:
+    metadata:
+      labels:
+        app: auth-consumer-dev
+        app.kubernetes.io/instance: auth-consumer-dev
+    spec:
+      containers:
+      - name: auth-consumer-dev
+        image: 'jejuonul-api-dev.kr.ncr.ntruss.com/auth-consumer-dev:0.9'
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: "2"
+            memory: "4Gi"
+          limits:
+            cpu: "2"
+            memory: "4Gi"
+      imagePullSecrets:
+      - name: ncr-secret
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
   name: auth-consumer-dev
   namespace: jejuonul-dev-test
 spec:
-  containers:
-    - image: 'jejuonul-api-dev.kr.ncr.ntruss.com/auth-consumer-dev:0.9'
-      name: auth-consumer-dev
-      ports:
-        - containerPort: 8080
-  imagePullSecrets:
-    - name: ncr-secret
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: auth-consumer-dev
+  minReplicas: 2
+  maxReplicas: 4
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 90
