@@ -5,7 +5,7 @@ metadata:
     app: routing-api-dev
     app.kubernetes.io/instance: routing-api-dev
   name: routing-api-dev
-  namespace: jejuonul-dev
+  namespace: jejuonul-dev-test
 spec:
   containers:
     - image: 'jejuonul-api-dev.kr.ncr.ntruss.com/routing-api-dev:0.7'
