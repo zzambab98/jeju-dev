@@ -38,7 +38,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: api-gateway-dev
-  namespace: jejuonul-dev
+  namespace: jejuonul-dev-test
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
