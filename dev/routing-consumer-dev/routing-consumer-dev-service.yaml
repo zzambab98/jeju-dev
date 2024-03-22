@@ -4,7 +4,7 @@ metadata:
   labels:
     app.kubernetes.io/instance: routing-consumer-dev
   name: routing-consumer-dev-service
-  namespace: jejuonul-dev
+  namespace: jejuonul-dev-test
 spec:
   ports:
     - port: 8080
