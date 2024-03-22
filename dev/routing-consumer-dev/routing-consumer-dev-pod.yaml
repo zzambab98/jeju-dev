@@ -5,7 +5,7 @@ metadata:
     app: routing-consumer-dev
     app.kubernetes.io/instance: routing-consumer-dev
   name: routing-consumer-dev
-  namespace: jejuonul-dev
+  namespace: jejuonul-dev-test
 spec:
   containers:
     - image: 'jejuonul-api-dev.kr.ncr.ntruss.com/routing-consumer-dev:0.7'
