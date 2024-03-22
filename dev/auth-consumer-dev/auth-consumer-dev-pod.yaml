@@ -5,7 +5,7 @@ metadata:
     app: auth-consumer-dev
     app.kubernetes.io/instance: auth-consumer-dev
   name: auth-consumer-dev
-  namespace: jejuonul-dev
+  namespace: jejuonul-dev-test
 spec:
   containers:
     - image: 'jejuonul-api-dev.kr.ncr.ntruss.com/auth-consumer-dev:0.9'
