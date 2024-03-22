@@ -5,7 +5,7 @@ metadata:
     app: order-api-dev
     app.kubernetes.io/instance: order-api-dev
   name: order-api-dev
-  namespace: jejuonul-dev
+  namespace: jejuonul-dev-test
 spec:
   containers:
     - image: 'jejuonul-api-dev.kr.ncr.ntruss.com/order-api-dev:1.0'
