@@ -4,7 +4,7 @@ metadata:
   labels:
     app.kubernetes.io/instance: order-consumer-dev
   name: order-consumer-dev-service
-  namespace: jejuonul-dev
+  namespace: jejuonul-dev-test
 spec:
   ports:
     - port: 8080
