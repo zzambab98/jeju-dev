@@ -8,7 +8,7 @@ metadata:
   namespace: jejuonul-dev
 spec:
   containers:
-    - image: 'jejuonul-api-dev.kr.ncr.ntruss.com/routing-consumer-dev:0.7'
+    - image: 'jejuonul-api-dev.kr.ncr.ntruss.com/routing-consumer-dev:0.9'
       name: routing-consumer-dev
       ports:
         - containerPort: 8080
