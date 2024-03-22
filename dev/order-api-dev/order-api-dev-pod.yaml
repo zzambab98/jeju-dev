@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: order-api-dev
+    app.kubernetes.io/instance: order-api-dev
+  name: order-api-dev
+  namespace: jejuonul-dev
+spec:
+  containers:
+    - image: 'jejuonul-api-dev.kr.ncr.ntruss.com/order-api-dev:1.0'
+      name: order-api-dev
+      ports:
+        - containerPort: 8080
+  imagePullSecrets:
+    - name: ncr-secret

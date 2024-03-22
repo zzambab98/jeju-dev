@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: auth-api-dev
+    app.kubernetes.io/instance: auth-api-dev
+  name: auth-api-dev
+  namespace: jejuonul-dev
+spec:
+  containers:
+    - image: 'jejuonul-api-dev.kr.ncr.ntruss.com/auth-api-dev:0.6'
+      name: auth-api-dev
+      ports:
+        - containerPort: 8080
+  imagePullSecrets:
+    - name: ncr-secret
