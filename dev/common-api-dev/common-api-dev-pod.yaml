@@ -5,7 +5,7 @@ metadata:
     app: common-api-dev
     app.kubernetes.io/instance: common-api-dev
   name: common-api-dev
-  namespace: jejuonul-dev
+  namespace: jejuonul-dev-test
 spec:
   containers:
     - image: 'jejuonul-api-dev.kr.ncr.ntruss.com/common-api-dev:0.7'
