@@ -8,7 +8,7 @@ metadata:
   namespace: jejuonul-dev
 spec:
   containers:
-    - image: 'jejuonul-api-dev.kr.ncr.ntruss.com/auth-api-dev:0.6'
+    - image: 'jejuonul-api-dev.kr.ncr.ntruss.com/auth-api-dev:0.9'
       name: auth-api-dev
       ports:
         - containerPort: 8080
