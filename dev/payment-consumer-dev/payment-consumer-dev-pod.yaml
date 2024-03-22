@@ -1,16 +1,53 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
+  name: payment-consumer-dev
+  namespace: jejuonul-dev-test
   labels:
     app: payment-consumer-dev
     app.kubernetes.io/instance: payment-consumer-dev
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: payment-consumer-dev
+  template:
+    metadata:
+      labels:
+        app: payment-consumer-dev
+        app.kubernetes.io/instance: payment-consumer-dev
+    spec:
+      containers:
+      - name: payment-consumer-dev
+        image: 'jejuonul-api-dev.kr.ncr.ntruss.com/payment-consumer-dev:0.8'
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: "2"
+            memory: "4Gi"
+          limits:
+            cpu: "2"
+            memory: "4Gi"
+      imagePullSecrets:
+      - name: ncr-secret
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
   name: payment-consumer-dev
   namespace: jejuonul-dev-test
 spec:
-  containers:
-    - image: 'jejuonul-api-dev.kr.ncr.ntruss.com/payment-consumer-dev:0.8'
-      name: payment-consumer-dev
-      ports:
-        - containerPort: 8080
-  imagePullSecrets:
-    - name: ncr-secret
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: payment-consumer-dev
+  minReplicas: 2
+  maxReplicas: 4
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 90
