@@ -1,16 +1,53 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
+  name: common-api-dev
+  namespace: jejuonul-dev-test
   labels:
     app: common-api-dev
     app.kubernetes.io/instance: common-api-dev
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: common-api-dev
+  template:
+    metadata:
+      labels:
+        app: common-api-dev
+        app.kubernetes.io/instance: common-api-dev
+    spec:
+      containers:
+      - name: common-api-dev
+        image: 'jejuonul-api-dev.kr.ncr.ntruss.com/common-api-dev:0.7'
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: "2"
+            memory: "4Gi"
+          limits:
+            cpu: "2"
+            memory: "4Gi"
+      imagePullSecrets:
+      - name: ncr-secret
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
   name: common-api-dev
   namespace: jejuonul-dev-test
 spec:
-  containers:
-    - image: 'jejuonul-api-dev.kr.ncr.ntruss.com/common-api-dev:0.7'
-      name: common-api-dev
-      ports:
-        - containerPort: 8080
-  imagePullSecrets:
-    - name: ncr-secret
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: common-api-dev
+  minReplicas: 2
+  maxReplicas: 4
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 90
