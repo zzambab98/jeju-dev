@@ -2,14 +2,14 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    app: routing-consumer-dev
-    app.kubernetes.io/instance: routing-consumer-dev
-  name: routing-consumer-dev
+    app: user-api-dev
+    app.kubernetes.io/instance: user-api-dev
+  name: user-api-dev
   namespace: jejuonul-dev-test
 spec:
   containers:
-    - image: 'jejuonul-api-dev.kr.ncr.ntruss.com/routing-consumer-dev:0.9'
-      name: routing-consumer-dev
+    - image: 'jejuonul-api-dev.kr.ncr.ntruss.com/user-api-dev:0.9'
+      name: user-api-dev
       ports:
         - containerPort: 8080
   imagePullSecrets:
