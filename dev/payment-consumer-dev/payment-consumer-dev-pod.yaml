@@ -5,7 +5,7 @@ metadata:
     app: payment-consumer-dev
     app.kubernetes.io/instance: payment-consumer-dev
   name: payment-consumer-dev
-  namespace: jejuonul-dev
+  namespace: jejuonul-dev-test
 spec:
   containers:
     - image: 'jejuonul-api-dev.kr.ncr.ntruss.com/payment-consumer-dev:0.8'
