@@ -1,30 +1,21 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
+  name: redis-dev
+  namespace: jejuonul-dev
   labels:
     app: redis-dev
     app.kubernetes.io/instance: redis-dev
-  name: redis-dev
-  namespace: jejuonul-dev
 spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: redis-dev
-  template:
-    metadata:
-      labels:
-        app: redis-dev
-    spec:
-      containers:
-        - image: redis
-          name: redis-dev
-          ports:
-            - containerPort: 6379
-          resources:
-            limits:
-              cpu: '4'
-              memory: 8Gi
-            requests:
-              cpu: '4'
-              memory: 8Gi
+  containers:
+    - name: redis-dev
+      image: redis
+      ports:
+        - containerPort: 6379
+      resources:
+        limits:
+          cpu: '4'
+          memory: 8Gi
+        requests:
+          cpu: '4'
+          memory: 8Gi
