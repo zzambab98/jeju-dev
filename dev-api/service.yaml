@@ -4,7 +4,7 @@ metadata:
   labels:
     app.kubernetes.io/instance: auth-api-dev
   name: auth-api-dev-service
-  namespace: jejuonul-dev
+  namespace: test123
 spec:
   ports:
     - port: 8080
