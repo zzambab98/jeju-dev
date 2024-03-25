@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: auth-api-dev
-  namespace: jejuonul-dev
+  namespace: test123
   labels:
     app: auth-api-dev
 spec:
